@@ -1,0 +1,35 @@
+1: Download NodeJs
+2: Chay npm init tren terminal de tai package.json
+3: Cai framework expressJs dung de viet server/ 1 cai server cho javascript
+3.1: Cai dat package va framework
+npm install --save body-parser@1.19.0 dotenv@8.2.0 ejs@3.1.5 express@4.17.1
+Trong do: body-parser dung de viet API
+        dotenv dung de lay tham so trong file moi truong
+        ejs la view engine nghia la muon chay 1 man hinh o phia server cua chung ta thi chung ta phai co 1 view engine
+        express la framework dung phia sau dung chay duoc project nay
+npm install --save-dev @babel/core@7.12.10 @babel/preset-env@7.12.10 @babel/node@7.12.10 nodemon@2.0.7
+Trong do: nodemon dung de chay lai server moi khi thay doi code
+
+3.2: node_modules la noi chua cac thu vien o javascript
+
+4: Cau truc project theo lararel va viet theo mo hinh MVC
+srv/server.js: dung de chay server
+   /controllers
+   /services dung de choc den cac database
+   /config: cau hinh cac tham so cua du an
+   /views: dung de luu tru cac file view nhu cac file html
+   /public: dung de luu tru hinh anh va css
+   /router: noi dung de viet cac router dung de khai bao duong link hay render nhu the nao
+
+Tao 1 file .env dung de khai bao moi truong va .env.example
+.gitignore de day nhung file nao ra ngoai phia server. Vi du nhu folder node_modules nao 200mb thi chung ta se day no len github
+.babelrc cau hinh cho trinh compile
+
+4.1: Tao cong PORT co gia tri o .env va khong co gia tri o file .env.example
+
+5: Tạo file src/config/viewEngine.js
+Note: Có 2 cách khai báo biến var và let. Var thì là global còn let chỉ là phạm vi trong 1 file 
+5.1: Dùng arrow function
+
+6: cai dat sequelize-cli 
+npm install --save-dev sequelize sequelize-cli@6.2.0
