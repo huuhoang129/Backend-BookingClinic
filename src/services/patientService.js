@@ -1,6 +1,7 @@
 import { reject } from "lodash";
 import db from "../models/index";
 import { where } from "sequelize";
+import emailService from "./emailService"
 require('dotenv').config();
 
 let postBookAppointment = (data) => {
@@ -13,6 +14,14 @@ let postBookAppointment = (data) => {
                     errMessage: 'Missing parameter'
                 })
             } else {
+
+                await emailService.sendSimpleEmail({
+                    reciverEmail: data.email,
+                    patientName: 'Name....',
+                    time: '8h00 - 9h00',
+                    doctorName: 'Doctor....',
+                    redirectLink: 'http://localhost:3000/home'
+                })
 
                 // upsert patient
                 let user = await db.User.findOrCreate({
