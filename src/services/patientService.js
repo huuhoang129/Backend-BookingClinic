@@ -32,7 +32,7 @@ let postBookAppointment = (data) => {
                     time: data.timeString,
                     doctorName: data.doctorName,
                     language: data.language,
-                    redirectLink: buildUrlEmail(data.doctorId)
+                    redirectLink: buildUrlEmail(data.doctorId, token)
                 })
 
                 // upsert patient
