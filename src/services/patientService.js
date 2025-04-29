@@ -7,7 +7,10 @@ require('dotenv').config();
 let postBookAppointment = (data) => {
     return new Promise(async (resolve, reject) => {
         try {
-            if (!data.email || !data.doctorId || !data.date || !data.timeType) {
+            if (!data.email || !data.doctorId || !data.date || !data.timeType
+
+                || !data.fullName
+            ) {
                 // if (!data.email) {
                 resolve({
                     errCode: 1,
@@ -17,9 +20,10 @@ let postBookAppointment = (data) => {
 
                 await emailService.sendSimpleEmail({
                     reciverEmail: data.email,
-                    patientName: 'Name....',
-                    time: '8h00 - 9h00',
-                    doctorName: 'Doctor....',
+                    patientName: data.fullName,
+                    time: data.timeString,
+                    doctorName: data.doctorName,
+                    language: data.language,
                     redirectLink: 'http://localhost:3000/home'
                 })
 
