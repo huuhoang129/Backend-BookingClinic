@@ -1,4 +1,4 @@
-import { reject } from "lodash";
+import { first, reject } from "lodash";
 import db from "../models/index";
 import { where } from "sequelize";
 import emailService from "./emailService"
@@ -16,7 +16,8 @@ let postBookAppointment = (data) => {
         try {
             if (!data.email || !data.doctorId || !data.date || !data.timeType
 
-                || !data.fullName
+                || !data.fullName || !data.selectedGender ||
+                !data.address
             ) {
                 // if (!data.email) {
                 resolve({
@@ -40,7 +41,10 @@ let postBookAppointment = (data) => {
                     where: { email: data.email },
                     defaults: {
                         email: data.email,
-                        roleId: 'R3'
+                        roleId: 'R3',
+                        gender: data.selectedGender,
+                        address: data.address,
+                        firstName: data.fullName
                     }
                 });
 
