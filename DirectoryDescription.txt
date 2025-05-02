@@ -1,0 +1,63 @@
+node_modules/      ← thư viện npm đã cài
+src/               ← code nguồn chính
+├─ config/         ← cấu hình DB, API keys… (như config/config.json)
+├─ controller/     ← các lớp hoặc hàm xử lý logic request → response
+├─ migrations/     ← script tạo/sửa/xóa bảng DB (Sequelize)
+├─ models/         ← định nghĩa các Sequelize model (entity của DB)
+├─ public/         ← tài nguyên tĩnh (CSS, JS client, hình ảnh…)
+├─ route/          ← định nghĩa các endpoint, gắn controller
+├─ seeders/        ← script chèn dữ liệu mẫu vào DB
+├─ services/       ← business logic, tách riêng khỏi controller
+└─ views/          ← template engine (EJS/Pug…) nếu render HTML từ server
+
+server.js          ← điểm vào (entry point) khởi tạo Express, middleware, route  
+.babelrc           ← cấu hình Babel (nếu bạn dùng ES6+ trên Node)  
+.env               ← lưu biến môi trường (DB credentials, port, secret…)  
+.env.example       ← mẫu file .env để dev khác biết cần khai báo gì  
+.gitignore         ← liệt kê file/đường dẫn không commit lên Git  
+.sequelizerc       ← “bản đồ” đường dẫn cho sequelize-cli (config, models, migrations, seeders)  
+package.json       ← metadata + danh sách dependencies (với khoảng version)  
+package-lock.json  ← “khóa” chính xác version từng package đã cài  
+Progress.txt       ← (có thể là ghi chép TODO, note công việc…)
+
+
+src/
+├── config/                   
+│   ├── config.json        ← File cấu hình mặc định cho Sequelize dùng để khai báo với môi trường thứ 3
+│   ├── connectDB.js       ← Là file helper để khởi tạo và kiểm tra kết nối đến database mỗi khi server khởi động
+│   └── viewEngine.js      ← Là file cấu hình đường dẫn giúp Express tìm các file template, Phục vụ static assets, Dùng engine (EJS) để biên dịch template đó
+├── controller/
+│   ├── clinicService.js
+│   ├── doctorController.js
+│   ├── homeController.js
+│   ├── patientController.js
+│   ├── specialtyController.js
+│   └── userController.js
+├── migrations/
+├── models/
+├── route/
+│   └── web.js
+├── seeders/
+│   └── seeder-users.js
+├── services/
+│   ├── clinicService.js
+│   ├── CRUDService.js
+│   ├── doctorServices.js
+│   ├── emailService.js
+│   ├── patientService.js
+│   ├── specialtyService.js
+│   └── userServices.js
+├── views/
+│   ├── crud.ejs
+│   ├── displayCRUD.ejs
+│   ├── editCRUD.ejs
+│   └── homepage.ejs
+├── server.js
+├── .babelrc
+├── .env
+├── .env.example
+├── .gitignore
+├── .sequelizerc
+├── package.json
+├── package-lock.json
+└── README
